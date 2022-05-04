@@ -3,6 +3,7 @@ body {
     color: white;
 }
 table, td, th {
+    z-index: 0;
     background-color: rgb(45, 45, 45);
     border: 1px solid white;
     width: 50vw;
@@ -13,32 +14,37 @@ table, td, th {
 
 
 /* ANIMATION */
-
-#moon-container {
-    height: 50vh;
-    width: 80vh;
-    margin: 5vh auto;
-    border: 1px solid red;
-
-}
 #sunny, #dark {
-    height: 20vh;
-    width: 20vh;
+    z-index: -1;
+    height: 40vh;
+    width: 40vh;
     border-radius: 50%;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
 }
 #sunny {
-    background-color: green;
+    background-color: rgb(219, 219, 219);
     transform: translateX(-50%) translateY(-50%);
+    background-image: url(moon.jpg);
+    background-position: center;
+    background-size: contain;
 
 }
 #dark {
-    background-color: blue;
-    transform: translateX(-150%) translateY(-50%) scaleY(120%);
+    box-shadow: 0 30vh 40vh 25vh black;
+    transform: translateX(-230%) translateY(-200%) scaleY(140%);
     transition: 2s;
+    animation-name: moving;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
 }
-#dark:hover {
-    transform: translateX(150%) translateY(-50%) scaleY(120%);   
+
+@keyframes moving {
+    1% { transform: translateX(-230%) translateY(-200%) scaleY(100%);}
+    25% { transform: translateX(-50%) translateY(-200%) scaleY(180%);}
+    50% { transform: translateX(80%) translateY(-200%) scaleY(100%);}
+    75% { transform: translateX(-50%) translateY(-200%) scaleY(180%);}
+    100% { transform: translateX(-230%) translateY(-200%) scaleY(140%);}
 }
