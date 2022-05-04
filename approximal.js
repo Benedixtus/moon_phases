@@ -9,11 +9,14 @@ const phase7 = 0.7770 ;
 const phase8 = 0.9734 ;
 var t1 = new Date("2022-04-01 07:24");
 var t2 = new Date();
-var dif = (( t2.getTime() - t1.getTime() )/60000).toFixed(0);
-moonphase();
+var dif =  (( t2.getTime() - t1.getTime() )/60000).toFixed(0);
+moonphase(dif);
 
-function moonphase() {
+function moonphase(dif) {
     var phase = dif/lunar_month;
+    console.log(phase);
+    phase = getDecimalPart(phase);
+    console.log(phase);
     document.getElementById("phasepercent").innerHTML = phase;
     if(phase < phase1 || phase > phase8) {document.getElementById("moonphase-a").innerHTML = "New Moon"}
     else if(phase < phase2 ) {document.getElementById("moonphase-a").innerHTML = "Waxing crescent"}
@@ -24,3 +27,10 @@ function moonphase() {
     else if(phase < phase7 ) {document.getElementById("moonphase-a").innerHTML = "Third quarter"}
     else if(phase < phase8 ) {document.getElementById("moonphase-a").innerHTML = "Waning crescent"}
 }
+
+function calcanimation() {
+    var phase = dif/lunar_month;
+}
+function getDecimalPart(num) {
+    return num % 1;
+  }

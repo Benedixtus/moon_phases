@@ -10,3 +10,35 @@ table, td, th {
     margin-bottom: 0;
     font-size: 150%;
 }
+
+
+/* ANIMATION */
+
+#moon-container {
+    height: 50vh;
+    width: 80vh;
+    margin: 5vh auto;
+    border: 1px solid red;
+
+}
+#sunny, #dark {
+    height: 20vh;
+    width: 20vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+#sunny {
+    background-color: green;
+    transform: translateX(-50%) translateY(-50%);
+
+}
+#dark {
+    background-color: blue;
+    transform: translateX(-150%) translateY(-50%) scaleY(120%);
+    transition: 2s;
+}
+#dark:hover {
+    transform: translateX(150%) translateY(-50%) scaleY(120%);   
+}
